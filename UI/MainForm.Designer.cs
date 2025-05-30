@@ -35,16 +35,18 @@
             // 
             // inputBox
             // 
+            inputBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             inputBox.Location = new Point(10, 10);
             inputBox.Name = "inputBox";
-            inputBox.Size = new Size(260, 23);
+            inputBox.Size = new Size(449, 23);
             inputBox.TabIndex = 0;
             // 
             // addButton
             // 
-            addButton.Location = new Point(280, 38);
+            addButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            addButton.Location = new Point(481, 10);
             addButton.Name = "addButton";
-            addButton.Size = new Size(164, 58);
+            addButton.Size = new Size(164, 47);
             addButton.TabIndex = 1;
             addButton.Text = "Добавить";
             addButton.UseVisualStyleBackColor = true;
@@ -52,9 +54,10 @@
             // 
             // updateButton
             // 
-            updateButton.Location = new Point(280, 102);
+            updateButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            updateButton.Location = new Point(481, 63);
             updateButton.Name = "updateButton";
-            updateButton.Size = new Size(164, 58);
+            updateButton.Size = new Size(164, 47);
             updateButton.TabIndex = 2;
             updateButton.Text = "Изменить";
             updateButton.UseVisualStyleBackColor = true;
@@ -62,9 +65,10 @@
             // 
             // deleteButton
             // 
-            deleteButton.Location = new Point(280, 166);
+            deleteButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            deleteButton.Location = new Point(481, 116);
             deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(164, 58);
+            deleteButton.Size = new Size(164, 47);
             deleteButton.TabIndex = 3;
             deleteButton.Text = "Удалить";
             deleteButton.UseVisualStyleBackColor = true;
@@ -72,16 +76,17 @@
             // 
             // taskListBox
             // 
+            taskListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             taskListBox.FormattingEnabled = true;
             taskListBox.ItemHeight = 15;
             taskListBox.Location = new Point(10, 40);
             taskListBox.Name = "taskListBox";
-            taskListBox.Size = new Size(260, 184);
+            taskListBox.Size = new Size(449, 229);
             taskListBox.TabIndex = 4;
             // 
             // MainForm
             // 
-            ClientSize = new Size(641, 283);
+            ClientSize = new Size(657, 283);
             Controls.Add(inputBox);
             Controls.Add(addButton);
             Controls.Add(updateButton);
