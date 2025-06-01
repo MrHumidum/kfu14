@@ -26,7 +26,7 @@ namespace TaskManager.UI
 
         private async void addButton_Click(object sender, EventArgs e)
         {
-            await _taskService.AddTaskAsync(inputBox.Text);
+            await _taskService.AddTaskAsync($"Исполнитель: {userInputBox.Text} | Задача: {taskInputBox.Text} | Дедлайн: {dateTimeInputBox.Text}");
             LoadTasksAsync();
         }
 
@@ -34,7 +34,7 @@ namespace TaskManager.UI
         {
             if (taskListBox.SelectedItem is TaskItem task)
             {
-                task.Title = inputBox.Text;
+                task.Title = $"Исполнитель: {userInputBox.Text} | Задача: {taskInputBox.Text} | Дедлайн: {dateTimeInputBox.Text}";
                 await _taskService.UpdateTaskAsync(task);
                 LoadTasksAsync();
             }
@@ -48,5 +48,23 @@ namespace TaskManager.UI
                 LoadTasksAsync();
             }
         }
+
+        private async void taskListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (taskListBox.SelectedItem is TaskItem task)
+            {
+                var parts = task.Title.Split(" | ");
+                foreach (var part in parts)
+                {
+                    if (part.StartsWith("Исполнитель:"))
+                        userInputBox.Text = part.Replace("Исполнитель:", "").Trim();
+                    else if (part.StartsWith("Задача:"))
+                        taskInputBox.Text = part.Replace("Задача:", "").Trim();
+                    else if (part.StartsWith("Дедлайн:") && DateTime.TryParse(part.Replace("Дедлайн:", "").Trim(), out var dt))
+                        dateTimeInputBox.Value = dt;
+                }
+            }
+        }
     }
 }
+
